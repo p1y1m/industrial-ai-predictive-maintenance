@@ -56,7 +56,7 @@ This file is the authoritative checkpoint for resuming work after interruption.
 ## Known constraints
 
 - No recoverable Git history existed in the empty prior `.git` directory; publication therefore starts with a clean initial commit.
-- GitHub CI initially exposed Playwright 1.56's lack of Ubuntu 26.04 support; the frontend job is pinned to the supported Ubuntu 24.04 runner.
+- GitHub CI initially exposed Playwright 1.56's lack of Ubuntu 26.04 support, then a slow host browser download on Ubuntu 24.04; the frontend job now uses Playwright's official version-matched Noble CI image with browsers and system dependencies preinstalled.
 - FD001 is simulated and contains only one operating condition and fault mode.
 - Conformal coverage is five percentage points below its nominal target.
 - Permutation explanations apply to the boosted-tree challenger, not the LSTM champion.
