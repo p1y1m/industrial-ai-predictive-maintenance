@@ -5,9 +5,9 @@ This file is the authoritative checkpoint for resuming work after interruption.
 ## Current checkpoint
 
 - Date: 2026-11-07 UTC
-- Phase: publication-ready checkpoint
-- Status: implementation and local publication preparation complete for the bounded FD001 reference scope; documented extensions remain
-- Next action: after explicit user approval, create the public `p1y1m/industrial-ai-predictive-maintenance` repository, push `main`, and manually deploy GitHub Pages
+- Phase: public portfolio release
+- Status: implementation is public and the no-cost static demo is deployed for the bounded FD001 reference scope; documented extensions remain
+- Next action: maintain the verified release; retrain or republish only after deliberate model or product changes
 
 ## Preserved scientific evidence
 
@@ -37,6 +37,7 @@ This file is the authoritative checkpoint for resuming work after interruption.
 - Confirmed the prior `.git` directory contained no objects, refs, configuration, or recoverable history; initialized a fresh `main` repository in place without altering project files.
 - Audited `.gitignore`: credentials, local environments, caches, raw/processed datasets, generated reports, and model binaries are excluded; the 100-engine offline evidence payload and real UI screenshot are retained.
 - Re-ran the complete local publication gate on 2026-11-07: all tests, static build, dependency audit, and Compose configuration passed without retraining.
+- Published the approved public repository at `https://github.com/p1y1m/industrial-ai-predictive-maintenance` and deployed the manual-only Pages workflow at `https://p1y1m.github.io/industrial-ai-predictive-maintenance/`.
 
 ## Exact verification snapshot
 
@@ -55,7 +56,7 @@ This file is the authoritative checkpoint for resuming work after interruption.
 ## Known constraints
 
 - No recoverable Git history existed in the empty prior `.git` directory; publication therefore starts with a clean initial commit.
-- The GitHub remote and Pages site do not exist yet; creation, push, and deployment remain intentionally blocked on explicit user approval.
+- GitHub CI initially exposed Playwright 1.56's lack of Ubuntu 26.04 support; the frontend job is pinned to the supported Ubuntu 24.04 runner.
 - FD001 is simulated and contains only one operating condition and fault mode.
 - Conformal coverage is five percentage points below its nominal target.
 - Permutation explanations apply to the boosted-tree challenger, not the LSTM champion.

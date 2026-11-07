@@ -40,4 +40,4 @@ The FastAPI/Starlette `TestClient` worker-thread path hangs in this managed exec
 
 Known residual limitations: FD001 covers one condition/fault; nominal 90% intervals achieved 85% coverage; explanations describe the boosted-tree challenger rather than the LSTM; the UI does not provide a full per-cycle LSTM attribution trace; and the optimized JavaScript bundle is approximately 648 KB before gzip (about 195 KB gzip).
 
-The prior `.git` directory was inspected on 2026-11-07 and contained no object database, refs, configuration, or recoverable history. A fresh `main` repository was initialized in place without deleting or changing project files. GitHub remote creation, push, and Pages deployment remain pending explicit user approval.
+The prior `.git` directory was inspected on 2026-11-07 and contained no object database, refs, configuration, or recoverable history. A fresh `main` repository was initialized in place without deleting or changing project files. After explicit approval, the source was published at <https://github.com/p1y1m/industrial-ai-predictive-maintenance> and the standalone demo at <https://p1y1m.github.io/industrial-ai-predictive-maintenance/>.

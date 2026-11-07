@@ -2,7 +2,7 @@ import {expect, test} from '@playwright/test';
 
 test('offline dashboard is interactive and independent of the API', async ({page}) => {
   await page.route('**/api/**', (route) => route.abort());
-  await page.goto('/');
+  await page.goto('./');
 
   await expect(page.getByRole('heading', {name: 'Fleet intelligence'})).toBeVisible();
   await expect(page.getByText(/OFFLINE PORTFOLIO DEMO/)).toBeVisible();
@@ -10,6 +10,13 @@ test('offline dashboard is interactive and independent of the API', async ({page
   await expect(page.getByText('fd001-c9c5dec1-seed42')).toBeVisible();
   await expect(page.getByText('100', {exact: true}).first()).toBeVisible();
   await expect(page.getByText('lstm', {exact: true})).toBeVisible();
+  await expect(page.locator('.recharts-responsive-container svg')).toBeVisible();
+
+  await page.getByRole('button', {name: 'Model evidence'}).click();
+  await expect(page.getByRole('heading', {name: 'Model evidence'})).toBeVisible();
+  await page.getByRole('button', {name: 'Evidence chain'}).click();
+  await expect(page.getByRole('heading', {name: 'Evidence chain'})).toBeVisible();
+  await page.getByRole('button', {name: 'Fleet command'}).click();
 
   await page.getByRole('button', {name: 'elevated'}).click();
   const queueStates = page.locator('.queue .asset small').filter({hasText: 'elevated'});
@@ -25,7 +32,7 @@ test('offline dashboard is interactive and independent of the API', async ({page
 test('offline dashboard remains usable at a mobile viewport', async ({page}) => {
   await page.setViewportSize({width: 390, height: 844});
   await page.route('**/api/**', (route) => route.abort());
-  await page.goto('/');
+  await page.goto('./');
 
   await expect(page.getByRole('heading', {name: 'Fleet intelligence'})).toBeVisible();
   await expect(page.getByText(/OFFLINE PORTFOLIO DEMO/)).toBeVisible();

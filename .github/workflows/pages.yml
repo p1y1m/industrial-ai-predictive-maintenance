@@ -17,8 +17,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 26
           cache: npm
@@ -33,7 +33,7 @@ jobs:
         env:
           VITE_STATIC_DEMO: 'true'
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3
         with:
           path: frontend/dist
@@ -46,4 +46,4 @@ jobs:
     steps:
       - name: Deploy only after manual dispatch
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

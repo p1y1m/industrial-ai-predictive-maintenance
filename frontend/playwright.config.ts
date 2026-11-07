@@ -1,5 +1,7 @@
 import {defineConfig, devices} from '@playwright/test';
 
+const liveDemoUrl=process.env.LIVE_DEMO_URL;
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -7,7 +9,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: process.env.CI ? 'github' : 'list',
   use: {
-    baseURL: 'http://127.0.0.1:4173',
+    baseURL: liveDemoUrl ?? 'http://127.0.0.1:4173',
     launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
       ? {executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH}
       : undefined,
@@ -15,7 +17,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
   },
   projects: [{name: 'chromium', use: {...devices['Desktop Chrome']}}],
-  webServer: {
+  webServer: liveDemoUrl ? undefined : {
     command: 'npm run build:demo && npm run preview -- --host 127.0.0.1 --port 4173',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI,

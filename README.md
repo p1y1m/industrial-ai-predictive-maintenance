@@ -2,6 +2,8 @@
 
 An end-to-end industrial predictive maintenance intelligence platform built on the official [NASA Prognostics Center of Excellence C-MAPSS dataset](https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/). It predicts Remaining Useful Life, calibrates failure-horizon risk, detects anomalous degradation, quantifies uncertainty, tracks experiments, exposes typed APIs, and presents the evidence in a responsive fleet operations console.
 
+[Live offline demo](https://p1y1m.github.io/industrial-ai-predictive-maintenance/) · [GitHub repository](https://github.com/p1y1m/industrial-ai-predictive-maintenance)
+
 > This is a research/engineering system, not an aircraft safety product. C-MAPSS is simulated turbofan data. “Measured” in the UI means simulator sensor output; it does not mean measurements from deployed aircraft.
 
 ## Verified results
@@ -76,7 +78,7 @@ cp .env.example .env
 docker compose up --build
 ```
 
-No cloud resources are provisioned, and nothing is deployed or pushed automatically.
+Only the read-only static portfolio demo is publicly deployed on no-cost GitHub Pages. The API, database, MLflow service, datasets, and model binaries remain local and are never deployed automatically.
 
 ## Backend-free portfolio demo
 
@@ -90,7 +92,7 @@ VITE_STATIC_DEMO=true npm --prefix frontend run dev
 .venv/bin/python scripts/export_static_demo.py
 ```
 
-The manual-only GitHub Pages workflow builds with the repository-relative base path. It cannot deploy on push; after an approved GitHub push, enable Pages with “GitHub Actions” as the source and manually dispatch `static-portfolio-demo`. See [deployment and publishing](docs/DEPLOYMENT.md).
+The [live GitHub Pages demo](https://p1y1m.github.io/industrial-ai-predictive-maintenance/) is built with the repository-relative base path. Its manual-only workflow cannot deploy on push; every future release requires an explicit `static-portfolio-demo` dispatch. See [deployment and publishing](docs/DEPLOYMENT.md).
 
 ## API and quality gates
 

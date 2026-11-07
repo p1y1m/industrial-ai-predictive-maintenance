@@ -1,6 +1,6 @@
 # Deployment and publishing
 
-Nothing in this repository has been pushed or publicly deployed. The default architecture is local-first and incurs no cloud cost.
+The source is public at <https://github.com/p1y1m/industrial-ai-predictive-maintenance> and the read-only offline demo is deployed at <https://p1y1m.github.io/industrial-ai-predictive-maintenance/>. The full application remains local-first; no paid cloud resources are provisioned.
 
 ## Full local stack
 
@@ -20,7 +20,7 @@ For a remote host, terminate TLS at a managed reverse proxy, restrict MLflow to 
 
 Static mode contains no credentials, database, model binaries, or write operations. It reads the committed `frontend/public/data/demo.json`, which is an offline export of precomputed official NASA FD001 predictions. The UI labels the data as offline and not live telemetry.
 
-After explicit approval to publish:
+For an explicitly approved future release:
 
 1. Create or select the GitHub repository and push the source normally.
 2. In GitHub, choose **Settings → Pages → Source → GitHub Actions**.
