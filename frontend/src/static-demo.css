@@ -1,0 +1,76 @@
+html { scroll-behavior: smooth; }
+
+nav button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  color: #789089;
+  cursor: pointer;
+  display: flex;
+  font: 13px Manrope, system-ui, sans-serif;
+  gap: 11px;
+  padding: 12px;
+  text-align: left;
+}
+
+nav button.active {
+  background: #14251f;
+  border-left: 2px solid #45d6a1;
+  color: #effbf6;
+}
+
+.offline {
+  align-items: center;
+  background: #2b2311;
+  border: 1px solid #715b26;
+  color: #f2c968;
+  display: flex;
+  font: 10px "DM Mono", monospace;
+  gap: 8px;
+  letter-spacing: .05em;
+  margin-bottom: 14px;
+  padding: 9px 12px;
+}
+
+.offline svg { width: 14px; }
+.panel, .grid { scroll-margin-top: 20px; }
+.filters { display: flex; gap: 3px; }
+
+.filters button {
+  background: transparent;
+  border: 1px solid #243a33;
+  color: #6f887f;
+  font: 8px "DM Mono", monospace;
+  padding: 5px 7px;
+  text-transform: uppercase;
+}
+
+.filters button.on {
+  background: #123025;
+  border-color: #34775f;
+  color: #45d6a1;
+}
+
+.asset {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+}
+
+.asset.selected { background: rgba(69, 214, 161, .055); box-shadow: inset 2px 0 #45d6a1; }
+.enginepeek { background: #091512; border: 1px solid #223b34; display: grid; gap: 18px; grid-template-columns: 1fr 1.25fr; margin-top: 14px; padding: 14px; }
+.enginepeek > div:first-child { display: flex; flex-direction: column; gap: 4px; }
+.enginepeek span, .enginepeek small { color: #6f887f; font: 9px "DM Mono", monospace; letter-spacing: .1em; }
+.enginepeek b { font-family: "DM Mono", monospace; }
+.riskbars { display: grid; gap: 7px; }
+.riskbars label { color: #6f887f; display: flex; font: 9px "DM Mono", monospace; justify-content: space-between; }
+.riskbars i { background: #172923; display: block; height: 3px; }
+.riskbars em { background: #f2b84b; display: block; height: 100%; }
+
+@media (max-width: 640px) { .enginepeek { grid-template-columns: 1fr; } }

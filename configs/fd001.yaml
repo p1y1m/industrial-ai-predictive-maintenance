@@ -1,0 +1,38 @@
+experiment:
+  name: cmapss-fd001-benchmark
+  seed: 42
+  subset: FD001
+  rul_cap: 125
+  validation_fraction: 0.20
+
+features:
+  rolling_windows: [5, 15]
+  sequence_length: 30
+  train_stride: 2
+
+models:
+  ridge:
+    alpha_grid: [0.1, 1.0, 10.0, 100.0]
+  tree:
+    learning_rate_grid: [0.05, 0.1]
+    max_leaf_nodes_grid: [15, 31]
+    max_iter: 300
+  lstm:
+    hidden_size: 48
+    num_layers: 1
+    dropout: 0.0
+    batch_size: 128
+    learning_rate: 0.001
+    max_epochs: 18
+    patience: 4
+
+risk:
+  horizons: [15, 30, 60]
+
+uncertainty:
+  coverage: 0.90
+
+promotion:
+  max_rmse_regression_pct: 5.0
+  min_interval_coverage: 0.85
+  max_brier_30: 0.18

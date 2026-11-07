@@ -1,0 +1,38 @@
+name: quality-gates
+on: {push: {}, pull_request: {}}
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - run: pip install -e '.[dev,mlops]'
+      - run: ruff check src tests
+      - run: mypy src
+      - run: pytest --cov=industrial_pm --cov-report=xml
+      - uses: codecov/codecov-action@v5
+        if: always()
+  frontend:
+    runs-on: ubuntu-latest
+    defaults: {run: {working-directory: frontend}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 26, cache: npm, cache-dependency-path: frontend/package-lock.json}
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm audit --omit=dev
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+  containers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose config --quiet
+      - run: docker build -f docker/backend.Dockerfile .
+      - run: docker build -f docker/frontend.Dockerfile .

@@ -1,0 +1,52 @@
+# Local toolchains and dependencies
+.venv/
+.tools/
+node_modules/
+frontend/node_modules/
+
+# Secrets and local configuration
+.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Frontend outputs
+frontend/dist/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+*.tsbuildinfo
+
+# Runtime and generated artifacts
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+artifacts/*
+!artifacts/.gitkeep
+mlruns/
+mlartifacts/
+mlflow.db
+model_registry/*
+!model_registry/.gitkeep
+reports/figures/*.png
+reports/metrics/*.json
+reports/screenshots/*.png
+!reports/screenshots/fleet-command-center.png
+*.db
+*.sqlite3
+logs/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
