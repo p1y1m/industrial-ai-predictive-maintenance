@@ -1,4 +1,6 @@
-# Turbine Sentinel    Author: Pedro Yanez Melendez
+# Turbine Sentinel    
+
+## Author: Pedro Yanez Melendez
 
 An end-to-end industrial predictive maintenance intelligence platform built on the official [NASA Prognostics Center of Excellence C-MAPSS dataset](https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/). It predicts Remaining Useful Life, calibrates failure-horizon risk, detects anomalous degradation, quantifies uncertainty, tracks experiments, exposes typed APIs, and presents the evidence in a responsive fleet operations console.
 
